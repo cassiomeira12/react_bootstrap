@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
 import App from './App';
+
+import Home from './container/Home';
 import Releases from './container/Releases';
 import Backlog from './container/Backlog';
 import Sprints from './container/Sprints';
@@ -13,11 +14,13 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Router path='/' component={App}/>
-    <Router path='/releases' component={Releases}/>
-    <Router path='/backlog' component={Backlog}/>
-    <Router path='/sprints' component={Sprints}/>
-  </Router>, 
+    <Router path='/' component={App}>
+      <IndexRoute component={Home}/>
+      <Router path='/releases' component={Releases}/>
+      <Router path='/backlog' component={Backlog}/>
+      <Router path='/sprints' component={Sprints}/>
+    </Router>
+  </Router>,
   document.getElementById('root')
 );
 

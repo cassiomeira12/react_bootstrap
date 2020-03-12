@@ -5,11 +5,11 @@ import './App.css';
 import NavBar from './ui/NavBar';
 import Home from './container/Home';
 
-function App() {
+function App(props) {
   return (
     <div className="container">
       <NavBar />
-      <Home />
+      {props.children}
     </div>
   );
 }
