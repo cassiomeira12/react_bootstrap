@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+import Login from './container/Login';
 import Home from './container/Home';
 import Releases from './container/Releases';
 import Backlog from './container/Backlog';
@@ -14,8 +15,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Router path='/' component={App}>
-      <IndexRoute component={Home}/>
+    <Router path='/' component={Login}>
+      <IndexRoute component={Login}/>
+      <Router path='/sign-in' component={Login}/>
       <Router path='/releases' component={Releases}/>
       <Router path='/backlog' component={Backlog}/>
       <Router path='/sprints' component={Sprints}/>
