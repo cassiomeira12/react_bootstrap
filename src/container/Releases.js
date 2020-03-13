@@ -34,6 +34,14 @@ export default class Releases extends Component {
     });
   }
 
+  removeHandler(index) {
+    const releases = this.state.releases;
+    releases.splice(index, 1);
+    this.setState({
+      releases: releases
+    });
+  }
+
   render() {
     return (
       <div className="container" style={{paddingTop: '25px'}}>
@@ -55,7 +63,7 @@ export default class Releases extends Component {
                     <th scope="row">{index}</th>
                     <td>{item.name}</td>
                     <td>{item.date}</td>
-                    <td><button className="btn btn-danger btn-sm">Remover</button></td>
+                    <td><button onClick={() => this.removeHandler(index)} className="btn btn-danger btn-sm">Remover</button></td>
                   </tr>
                 )
               })
